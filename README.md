@@ -1,4 +1,4 @@
-# small_python_projects_rep
+# small_python_projects_portfolio
 
 ___________________________________
 Welcome!
