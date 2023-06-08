@@ -5,7 +5,7 @@ Welcome!
 
 This repository is home to some of the projects I've created along the Angela Yu's Udemy Python course: https://www.udemy.com/course/100-days-of-code/.
 
-Please, feel free to take a look and judge for yourself how much of a noob I am ;)
+Please, feel free to take a look and judge for yourself how much of a noob I am.
 
 Enjoy!
 Paulus G
