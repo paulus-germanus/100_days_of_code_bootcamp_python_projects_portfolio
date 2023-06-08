@@ -1,6 +1,5 @@
 # small_python_projects_portfolio
 
-___________________________________
 Welcome!
 
 This repository is home to some of the projects I've created along the Angela Yu's Udemy Python course: https://www.udemy.com/course/100-days-of-code/.
