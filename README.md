@@ -12,5 +12,6 @@ Paulus G
 ___________________________________
 
 1. The programs are numbered with their respective course lesson numbers.
-2. Python libraries I've learned (i.e. "scratched the surface of") and used to write the programs in this rep:
+2. The programs were written based on the instructions given in the respective lesson without me looking at the answer, even if it meant thinking and tinkering with the code for a week.
+3. Python libraries I've learned (i.e. "scratched the surface of") and used to write the programs in this rep:
 - 
