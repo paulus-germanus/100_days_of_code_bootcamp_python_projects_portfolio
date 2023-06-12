@@ -12,5 +12,6 @@ ___________________________________
 
 1. The programs are numbered with their respective course lesson numbers.
 2. The programs were written based on the instructions given in the respective lesson without me looking at the answer, even if it meant thinking and tinkering with the code for a week or longer.
-3. Python libraries I've used to write the programs in this repository:
+3. Python modules and packages I've used to write the programs in this repository:
+- random,
 - 
