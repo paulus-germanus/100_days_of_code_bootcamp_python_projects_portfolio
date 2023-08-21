@@ -10,11 +10,10 @@ machine_on = True
 
 while machine_on:
     coffee_kind = input(f"What would you like? ({menu.get_items()}): ").lower()
-    drink = menu.find_drink(coffee_kind)
     if coffee_kind == "off":
         machine_on = False
     elif coffee_kind == "report":
         print(maker.report())
         print(money_machine.report())
-    elif maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
-        maker.make_coffee(drink)
+    elif maker.is_resource_sufficient(menu.find_drink(coffee_kind)) and money_machine.make_payment(menu.find_drink(coffee_kind).cost):
+        maker.make_coffee(menu.find_drink(coffee_kind))
