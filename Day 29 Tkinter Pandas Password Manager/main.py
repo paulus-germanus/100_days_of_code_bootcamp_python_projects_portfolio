@@ -1,4 +1,5 @@
 import tkinter
+from tkinter import messagebox
 import random
 import pandas as pd
 
@@ -24,6 +25,7 @@ def pass_gen():
     password_entry.delete(0, tkinter.END)
     password_entry.insert(0, string=randomized_password_list)
 
+
 # ---------------------------- SAVE CREDENTIALS ------------------------------- #
 
 
@@ -33,22 +35,36 @@ def save_credentials():
         "username": [username_entry.get()],
         "password": [password_entry.get()]
     }
-    credentials_df = pd.DataFrame(credentials_dict)
-    credentials_df.to_csv("password_manager.csv", mode="a", header=False, index=False)
-    website_entry.delete(0, tkinter.END)
-    username_entry.delete(0, tkinter.END)
-    password_entry.delete(0, tkinter.END)
+
+    if len(website_entry.get()) == 0 or len(username_entry.get()) == 0 or len(password_entry.get()) == 0:
+        messagebox.showinfo(title="Hmm...",
+                            message="Please populate all the entry fields to proceed.")
+    else:
+        add_credentials = messagebox.askokcancel(title="U sure?",
+                                             message=f"Are you sure you want to add the following details to the database?\nWebsite: {website_entry.get()}\nUsername: {username_entry.get()}\nPassword: {password_entry.get()}")
+        if add_credentials:
+            credentials_df = pd.DataFrame(credentials_dict)
+            credentials_df.to_csv("password_manager.csv", mode="a", header=False, index=False)
+            website_entry.delete(0, tkinter.END)
+            username_entry.delete(0, tkinter.END)
+            password_entry.delete(0, tkinter.END)
+            messagebox.showinfo(title="Great success!",
+                                message="You have successfully added the entered credentials to the database.")
 
 
 # -------------------------- SEARCH CREDENTIALS ----------------------------- #
 
 
 def seach_credentials():
-    searched_df = pd.read_csv("password_manager.csv")
-    username_entry.delete(0, tkinter.END)
-    username_entry.insert(0, string=searched_df[searched_df.website == website_entry.get()].username.iloc[0])
-    password_entry.delete(0, tkinter.END)
-    password_entry.insert(0, string=searched_df[searched_df.website == website_entry.get()].password.iloc[0])
+    try:
+        searched_df = pd.read_csv("password_manager.csv")
+        username_entry.delete(0, tkinter.END)
+        username_entry.insert(0, string=searched_df[searched_df.website == website_entry.get()].username.iloc[0])
+        password_entry.delete(0, tkinter.END)
+        password_entry.insert(0, string=searched_df[searched_df.website == website_entry.get()].password.iloc[0])
+    except IndexError:
+        messagebox.showinfo(title="Great failure!",
+                            message="The website you are looking for seems not to be saved in the database.")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
