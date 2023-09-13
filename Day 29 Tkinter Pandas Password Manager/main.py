@@ -35,6 +35,9 @@ def save_credentials():
     }
     credentials_df = pd.DataFrame(credentials_dict)
     credentials_df.to_csv("password_manager.csv", mode="a", header=False, index=False)
+    website_entry.delete(0, tkinter.END)
+    username_entry.delete(0, tkinter.END)
+    password_entry.delete(0, tkinter.END)
 
 
 # -------------------------- SEARCH CREDENTIALS ----------------------------- #
