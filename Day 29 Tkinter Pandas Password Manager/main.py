@@ -36,12 +36,32 @@ def save_credentials():
         "password": [password_entry.get()]
     }
 
+    website_list = pd.read_csv("password_manager.csv").website.to_list()
+
     if len(website_entry.get()) == 0 or len(username_entry.get()) == 0 or len(password_entry.get()) == 0:
         messagebox.showinfo(title="Hmm...",
                             message="Please populate all the entry fields to proceed.")
+    elif website_entry.get() in website_list:
+        add_another_creds = messagebox.askokcancel(title="Ups, duplicate!",
+                                                   message=f"The credentials for {website_entry.get()} already exist in the database. Would you like to overwrite the credentials for {website_entry.get()}?")
+        if add_another_creds:
+            load_existing_data = pd.read_csv("password_manager.csv")
+            existing_data_dict = load_existing_data.to_dict()
+            # key_list = list(existing_data_dict["website"].keys())
+            value_list = list(existing_data_dict["website"].values())
+            position = value_list.index(website_entry.get())
+            existing_data_dict["username"][position] = username_entry.get()
+            existing_data_dict["password"][position] = password_entry.get()
+            updated_credentials_df = pd.DataFrame(existing_data_dict)
+            updated_credentials_df.to_csv("password_manager.csv", index=False)
+            website_entry.delete(0, tkinter.END)
+            username_entry.delete(0, tkinter.END)
+            password_entry.delete(0, tkinter.END)
+            messagebox.showinfo(title="Great success!",
+                                message=f"You have successfully updated the credentials for {website_entry.get()} in the database.")
     else:
         add_credentials = messagebox.askokcancel(title="U sure?",
-                                             message=f"Are you sure you want to add the following details to the database?\nWebsite: {website_entry.get()}\nUsername: {username_entry.get()}\nPassword: {password_entry.get()}")
+                                                 message=f"Are you sure you want to add the following details to the database?\nWebsite: {website_entry.get()}\nUsername: {username_entry.get()}\nPassword: {password_entry.get()}")
         if add_credentials:
             credentials_df = pd.DataFrame(credentials_dict)
             credentials_df.to_csv("password_manager.csv", mode="a", header=False, index=False)
