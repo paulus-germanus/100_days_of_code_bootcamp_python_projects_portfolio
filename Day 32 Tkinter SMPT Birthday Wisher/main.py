@@ -5,7 +5,7 @@ import tkinter
 import datetime as dt
 
 # __________auto generate current date in the csv for the program to work__________#
-# __________ENTER YOUR NAME AND EMAIL FOR THE FOR TESTING PURPOSES__________#
+# __________WHEN PROMPTED ENTER YOUR NAME AND EMAIL FOR TESTING PURPOSES__________#
 data = pd.read_csv("birthdays.csv").to_dict()
 data["name"] = input("For testing purposes please enter your NAME for the program to be able to send you personalised birthday wishes: ")
 data["email"] = input("For testing purposes please enter your EMAIL for the program to be able to send you birthday wishes: ")
