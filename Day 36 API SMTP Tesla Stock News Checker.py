@@ -37,7 +37,7 @@ news_api_params = {
 
 news_api_response = requests.get(url="https://newsapi.org/v2/everything", params=news_api_params)
 news_api_response.raise_for_status()
-tsla_news = f'Brief: {html.unescape(news_api_response.json()["articles"][0]["description"])}\nLink: {news_api_response.json()["articles"][0]["url"]};\n\nBrief: {html.unescape(news_api_response.json()["articles"][1]["description"])}\nLink: {news_api_response.json()["articles"][1]["url"]}\n\nBrief: {html.unescape(news_api_response.json()["articles"][2]["description"])}\nLink: {news_api_response.json()["articles"][2]["url"]}'
+tsla_news = f'Brief: {html.unescape(news_api_response.json()["articles"][0]["description"]).encode("utf-8")}\nLink: {news_api_response.json()["articles"][0]["url"]};\n\nBrief: {html.unescape(news_api_response.json()["articles"][1]["description"]).encode("utf-8")}\nLink: {news_api_response.json()["articles"][1]["url"]}\n\nBrief: {html.unescape(news_api_response.json()["articles"][2]["description"]).encode("utf-8")}\nLink: {news_api_response.json()["articles"][2]["url"]}\n\nBrief: {html.unescape(news_api_response.json()["articles"][3]["description"]).encode("utf-8")}\nLink: {news_api_response.json()["articles"][3]["url"]}\n\nBrief: {html.unescape(news_api_response.json()["articles"][4]["description"]).encode("utf-8")}\nLink: {news_api_response.json()["articles"][4]["url"]}'
 
 if a_v_daily_close_yesterday <= a_v_daily_close_day_before_yesterday * 0.99:
     difference = round((a_v_daily_close_yesterday - a_v_daily_close_day_before_yesterday) / a_v_daily_close_yesterday * 100)
