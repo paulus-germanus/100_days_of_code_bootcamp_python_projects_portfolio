@@ -12,6 +12,18 @@ ___________________________________
 
 1. The programs are numbered with their respective course lesson numbers.
 2. The programs were written based on the instructions given in the respective lesson without me looking at the answer, even if it meant thinking and tinkering with the code for a week or longer.
-3. Python modules and packages I've used to write the programs in this repository:
-- random,
-- 
+3. During the course I've learned and used so far:
+- if-elif-else statements,
+- for and while loops,
+- random module,
+- turtle module,
+- OOP,
+- tkinter module,
+- pandas module,
+- JSON,
+- SMTP with smtplib module,
+- list & dictionary comprehension,
+- API with request module,
+- HTML and CSS,
+- webscraping with Beautiful Soup - bs4 module,
+- Selenium driver with selenium module,
