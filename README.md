@@ -25,5 +25,5 @@ ___________________________________
 - list & dictionary comprehension,
 - API with request module,
 - HTML and CSS,
-- webscraping with Beautiful Soup - bs4 module,
-- Selenium driver with selenium module,
+- webscraping with Beautiful Soup bs4 module,
+- Selenium webdriver with selenium module,
